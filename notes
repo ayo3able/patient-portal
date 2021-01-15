@@ -1,0 +1,65 @@
+#APP OVERVIEW
+I am going to build a physicians portal, where the doctor 
+can create new patients and appointments for those patients.
+
+
+#PHYSICIAN STORIES
+
+##PHYSICIANS WILL BE ABLE TO...
+-log in, sign up and log out
+-create a new patients
+-see all my patients
+-delete patients
+-create new appointments
+-see all my appointments
+-edit appointments
+-delete appointments 
+
+#WIREFRAMING
+
+##MODELS WILL BE PHYSICIAN PATIENT APPOINTMENT
+
+##PHYSICIAN
+### ATTRIBUTES
+-name
+-email
+-password
+
+### ASSOCIATIONS
+-has_many :appointments
+-has_many :patients through: :appointments
+
+##PATIENT
+###ATTRIBUTES
+-name
+-address
+-insurance
+-age
+
+
+###ASSOCIATIONS
+has_many :appointments
+has_many :physicians, through: :appointments
+enum gender: [:undisclosed, :female, :male, :other]
+
+
+##APPOINTMENT
+###ATTRIBUTES
+-belongs_to :physician
+-belongs_to patient
+-appointment_date
+
+###ASSOCIATIONS
+-belongs_to :physician
+-belongs_to :patient
+-datetime :appointment_date
+-timestamps null: false
+
+#MVP
+PHYSICIAN can sign up, log in, log out, create new patients, 
+create new appointments and edit them.
+view appointments and patients
+
+#STRETCH GOALS
+-CSS -make it look pretty
+-Tests
