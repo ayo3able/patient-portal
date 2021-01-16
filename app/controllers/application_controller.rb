@@ -31,6 +31,18 @@ class ApplicationController < Sinatra::Base
     session.clear
     redirect "/"
   end
+
+  helpers do
+
+    def logged_in?
+      !!current_user
+    end
+
+    def current_user
+      @current_user ||= Physician.find_by(id: session[:physician_id])
+    end
+    
+  end
   
 
 end

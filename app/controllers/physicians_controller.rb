@@ -21,7 +21,7 @@ class PhysiciansController < ApplicationController
       else
         phy_info = Physician.create(name: params[:name], password: params[:password])
         session[:physician_id] = phy_info.id
-        redirect "/physicians"
+        redirect "/physicians/#{Physician.id}"
       end
     end
   end

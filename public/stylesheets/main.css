@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(230, 173, 187);
+    background-color: rgb(168, 154, 116);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -23,9 +23,14 @@
     font-weight: bold;
     display: block;
     width: 150px;
-    float: left;
+    float: inherit;
+    margin-bottom: 15px;
     }
     label:after { content: ":" }
+
+  input {
+    margin-bottom: 10px
+  }
 
   .myButton {
     box-shadow: 0px 10px 14px -7px #276873;
@@ -36,12 +41,12 @@
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
-    font-size:20px;
+    font-size:18px;
     font-weight:bold;
-    padding:7px 15px;
+    padding:5px 13px;
     text-decoration:none;
     text-shadow:0px 1px 0px #3d768a;
-    margin-top: 10px;
+    margin-top: 15px;
   }
   .myButton:hover {
     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
@@ -61,7 +66,16 @@
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+    width: 75%;
+    float: inherit;
+  }
+
+  .su_content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+
   }
 
   h1 {
@@ -90,14 +104,14 @@
   }
 
   .content {
-    float: left;
+    float: center;
     width: 60%; /* 480px / 800px */
   }
 
   .sidebar {
     background: #eee;
     border: 1px solid #ccc;
-    float: right;
+    float: inherit;
     padding: 2.08333333333%; /* 5px / 240px */
     width: 30%; /* 240px / 800px */
   }

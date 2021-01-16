@@ -4,6 +4,7 @@
 
 barclay = Physician.create(name: "Dr.Ariel Barclay", password: "FunnyBone")
 frankenstien = Physician.create(name: "Dr.Frankenstien", password: "Monster")
+# r_barclay = Physician.find(1) already exsist.Ask how to create appointments with that data
 
 #Create 4 Patients
 
@@ -17,4 +18,5 @@ barclay.appointments.create(physician_id: barclay.id, patient_id: sara.id, appoi
 barclay.appointments.create(physician_id: barclay.id, patient_id: jill.id, appointment_date: DateTime.parse("09/01/2009 13:00"))
 frankenstien.appointments.create(physician_id: frankenstien.id, patient_id: brian.id, appointment_date: DateTime.parse("09/01/2009 10:00"))
 frankenstien.appointments.create(physician_id: frankenstien.id, patient_id: dashawn.id, appointment_date: DateTime.parse("09/01/2009 12:00"))
+
 # Appointment.create(physician_id:, patient_id:, appointment_date:)
