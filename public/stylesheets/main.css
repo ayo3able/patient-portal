@@ -13,11 +13,45 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: rgb(230, 173, 187);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
   }
+  label {
+    color: #0f0e0d;
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    float: left;
+    }
+    label:after { content: ":" }
+
+  .myButton {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color:#599bb3;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:7px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    margin-top: 10px;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color:#408c99;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
+  
 
   .wrapper {
     background: #fff;

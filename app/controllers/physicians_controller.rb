@@ -6,13 +6,24 @@ class PhysiciansController < ApplicationController
   end
 
   # GET: /physicians/new
-  get "/physicians/new" do
+  get "/sign_up" do
     erb :"/physicians/new.html"
   end
 
   # POST: /physicians
   post "/physicians" do
-    redirect "/physicians"
+   
+    if params[:name] == "" && params[:password] == ""
+      redirect "/sign_up"
+    else
+      if Physician.find_by(name: params[:name])
+        redirect "/log_in"
+      else
+        phy_info = Physician.create(name: params[:name], password: params[:password])
+        session[:physician_id] = phy_info.id
+        redirect "/physicians"
+      end
+    end
   end
 
   # GET: /physicians/5

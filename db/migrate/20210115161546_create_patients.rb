@@ -5,7 +5,6 @@ class CreatePatients < ActiveRecord::Migration
       t.string :address
       t.string :insurance
       t.integer :age
-      t.integer :patient, :gender, :integer
       t.timestamps null: false
     end
   end
