@@ -26,6 +26,10 @@ class PhysiciansController < ApplicationController
     end
   end
 
+  get "/physicians/:id" do
+    "This will be the users show route"
+  end
+
   # GET: /physicians/5
   get "/physicians/:id" do
     erb :"/physicians/show.html"
