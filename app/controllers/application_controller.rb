@@ -38,8 +38,8 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def current_user
-      @current_user ||= Physician.find_by(id: session[:physician_id])
+    def current_phys
+      @current_phys ||= Physician.find_by(id: session[:physician_id])
     end
     
   end

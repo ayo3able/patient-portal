@@ -10,7 +10,7 @@ class PhysiciansController < ApplicationController
     erb :"/physicians/new.html"
   end
 
-  # POST: /physicians
+  # POST: /physicians logging in
   post "/physicians" do
    
     if params[:name] == "" && params[:password] == ""
@@ -26,12 +26,11 @@ class PhysiciansController < ApplicationController
     end
   end
 
-  get "/physicians/:id" do
-    "This will be the users show route"
-  end
 
   # GET: /physicians/5
   get "/physicians/:id" do
+    # This is the show page
+    @phy = Physician.find_by(id: params[:id])
     erb :"/physicians/show.html"
   end
 

@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/auntyayo/development/patient-portal/app/controllers/physicians_controller.rb:34 self.GET /physicians/:id:
+
+    [1;34m29[0m: 
+    [1;34m30[0m:   [1;34m# GET: /physicians/5[0m
+    [1;34m31[0m:   get [31m[1;31m"[0m[31m/physicians/:id[1;31m"[0m[31m[0m [32mdo[0m
+    [1;34m32[0m:     [1;34m# This is the show page[0m
+    [1;34m33[0m:     @phy = [1;34;4mPhysician[0m.find_by([35mid[0m: params[[33m:id[0m])
+ => [1;34m34[0m:     binding.pry 
+    [1;34m35[0m:     erb [33m:[1;33m"[0m[33m/physicians/show.html[1;33m"[0m[33m[0m
+    [1;34m36[0m:   [32mend[0m
+    [1;34m37[0m: 
+    [1;34m38[0m:   [1;34m# GET: /physicians/5/edit[0m
+    [1;34m39[0m:   get [31m[1;31m"[0m[31m/physicians/:id/edit[1;31m"[0m[31m[0m [32mdo[0m
+
