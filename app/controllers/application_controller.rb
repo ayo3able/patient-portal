@@ -10,6 +10,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if logged_in?
+      redirect "/physicians/#{current_phys.id}"
+    else
     erb :welcome
   end
 
