@@ -56,7 +56,7 @@
     position:relative;
     top:1px;
   }
-  
+ 
 
   .wrapper {
     background: #fff;
@@ -121,6 +121,11 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+    /*  Appointment Page Styles*/
+
+    table, th, td {
+      border: 1px solid black;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -152,4 +157,6 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+
 }
