@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
       redirect "/physicians/#{current_phys.id}"
     else
     erb :welcome
+    end
   end
 
   get "/log_in" do
@@ -22,8 +23,10 @@ class ApplicationController < Sinatra::Base
 
   post "/log_in" do
    phy_find = Physician.find_by(name: params[:name])
+  
    if phy_find && phy_find.authenticate(params[:password])
-     redirect "/appointments"
+    session[:physician_id]
+     redirect "/physicians/#{current_phys.id}"
    else
     redirect "/sign_up" 
    end
@@ -38,11 +41,11 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      !!current_user
+      !!current_phys
     end
 
     def current_phys
-      @current_phys ||= Physician.find_by(id: session[:physician_id])
+      @current_phys ||= Physician.find_by(id: session[:physician_id]) if session[:physician_id]
     end
     
   end
