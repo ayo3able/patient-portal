@@ -33,7 +33,9 @@
   input {
     margin: .4rem 0;
   }
-
+  .info_box{
+    padding-right: 50%;
+  }
   .myButton {
     box-shadow: 0px 10px 14px -7px #276873;
     background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);

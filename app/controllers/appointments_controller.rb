@@ -29,8 +29,11 @@ class AppointmentsController < ApplicationController
 
   # GET: /appointments/5
   get "/appointments/:id" do
+    @appointment = Appointment.find(params[:id])
     erb :"/appointments/show.html"
   end
+  
+ 
 
   # GET: /appointments/5/edit
   get "/appointments/:id/edit" do

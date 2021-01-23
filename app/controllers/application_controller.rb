@@ -38,6 +38,10 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
 
+  post '/appointments' do
+    "Hello World"
+  end
+
   helpers do
 
     def logged_in?
