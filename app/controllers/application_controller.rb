@@ -41,6 +41,7 @@ class ApplicationController < Sinatra::Base
   post '/appointments' do
     "Hello World"
   end
+ 
 
   helpers do
 
