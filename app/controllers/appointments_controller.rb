@@ -12,7 +12,19 @@ class AppointmentsController < ApplicationController
 
   # POST: /appointments
   post "/appointments" do
-    redirect "/appointments"
+    #create new appointment and save into DB
+    #Only want to create an appointment if a Physician is logged in
+    #save only if appointment has a time and a date
+    if !logged_in?
+      redirect '/'
+    end
+    if params[:appointment_date] && params[:appt_time] != ""
+      @appointment = Appointment.create(appointment_date: params[:appointment_date],
+      physician_id: current_phys.id)
+      redirect "/appointments/#{@appointment.id}"
+    else
+      redirect '/appointments/new'
+    end
   end
 
   # GET: /appointments/5

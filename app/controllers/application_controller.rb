@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :sessions_secret, "flowers"
+    set :session_secret, "flowers"
     set :public_folder, 'public'
     set :views, 'app/views'
   end
@@ -23,10 +23,10 @@ class ApplicationController < Sinatra::Base
 
   post "/log_in" do
    phy_find = Physician.find_by(name: params[:name])
-  
    if phy_find && phy_find.authenticate(params[:password])
-    session[:physician_id]
-     redirect "/physicians/#{current_phys.id}"
+    session[:physician_id] = phy_find.id
+     redirect "/physicians/#{phy_find.id}"
+     
    else
     redirect "/sign_up" 
    end
@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_phys
-      @current_phys ||= Physician.find_by(id: session[:physician_id]) if session[:physician_id]
+      @current_phys = Physician.find_by(id: session[:physician_id]) if session[:physician_id]
     end
     
   end
