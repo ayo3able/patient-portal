@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
 
   # GET: /appointments/5
   get "/appointments/:id" do
-    @appointment = Appointment.find_by(id: params[:id])
+    set_appointment
     erb :"/physicians/show.html"
   end
   
@@ -37,16 +37,23 @@ class AppointmentsController < ApplicationController
 
   # GET: /appointments/5/edit
   get "/appointments/:id/edit" do
+    set_appointment
     erb :"/appointments/edit.html"
   end
 
   # PATCH: /appointments/5
   patch "/appointments/:id" do
-    redirect "/appointments/:id"
+    set_appointment
+    @appointment.update(appointment_date: params[:appointment_date])
+    
+    redirect "/appointments/#{@appointment.id}"
   end
 
   # DELETE: /appointments/5/delete
   delete "/appointments/:id/delete" do
-    redirect "/appointments"
+    @appointment.delete
+    redirect "/"
   end
+  
+
 end

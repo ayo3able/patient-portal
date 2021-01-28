@@ -41,6 +41,11 @@ class ApplicationController < Sinatra::Base
   post '/appointments' do
     "Hello World"
   end
+
+  get '/home/auntyayo/development/patient-portal/public/images/doctor%20patient%20pic2.png' do
+    erb :"public/images/doctor patient pic2.png"
+  end
+ 
  
 
   helpers do
@@ -52,7 +57,21 @@ class ApplicationController < Sinatra::Base
     def current_phys
       @current_phys = Physician.find_by(id: session[:physician_id]) if session[:physician_id]
     end
-    
+
+    def set_appointment
+      @appointment = Appointment.find_by(id: params[:id])
+      
+    end
+
+    def set_patient
+      @patient = Patient.find_by(id: params[:id])
+    end
+
+    def set_physician
+      @phy = Physician.find_by(id: params[:id])
+    end
+
+
   end
   
 

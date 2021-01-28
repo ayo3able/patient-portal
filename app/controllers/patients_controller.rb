@@ -22,11 +22,13 @@ class PatientsController < ApplicationController
 
   # GET: /patients/5/edit
   get "/patients/:id/edit" do
+    set_patient
     erb :"/patients/edit.html"
   end
 
   # PATCH: /patients/5
   patch "/patients/:id" do
+    set_patient
     redirect "/patients/:id"
   end
 
@@ -34,4 +36,8 @@ class PatientsController < ApplicationController
   delete "/patients/:id/delete" do
     redirect "/patients"
   end
+
+
+   # Method that finds a patient, appointment to a specific doctor
+  # Method that finds all the patients of one doctor
 end

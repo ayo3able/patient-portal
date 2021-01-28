@@ -1,24 +1,28 @@
 
 
 <h3><%= current_phys.name %>'s Appointments</h3>
+
 <table class="app-table">
-  <tr>
-    <th>APPOINTMENT</th>
+  <thead >
+    <th>Appoinments</th>
     <th>PATIENT</th>
-    <th class="info_box">INFORMATION </th>
-  </tr>
+    <th>Insurance</th>
+    <th>Age</th>
+    <th class="info_box">Address </th>
+    <th>Edit Appoinments</th>
+     </thead>
+ 
+  <% current_phys.patients.zip(current_phys.appointments).each do |p, a| %>
   <tr>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>
+  <td><%= a.appointment_date%></td>
+  <td><%= p.name %></td>
+  <td><%= p.insurance %></td>
+  <td><%= p.age %></td>
+  <td><%= p.address %></td>
+  <td><a class="myButton" href="/appointments/<%=set_appointment.id%>/edit">Edit</a></td>
   </tr>
-  <tr>
-    <td><%=  %></td>
-    <td><%=  %></td>
-    <td><%=  %></td>
-  </tr>
+<% end %>
 </table>
-<%# Edit Link %>
-<a href="/appointments/<%=@appointment.id%>/edit">Edit Appointment</a>
-<%# Delete Link %>
+
+
 

@@ -4,7 +4,7 @@
 
 barclay = Physician.create(name: "Dr.Ariel Barclay", password: "FunnyBone")
 frankenstien = Physician.create(name: "Dr.Frankenstien", password: "Monster")
-# r_barclay = Physician.find(1) already exsist.Ask how to create appointments with that data
+
 
 #Create 4 Patients
 

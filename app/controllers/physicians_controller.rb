@@ -30,7 +30,9 @@ class PhysiciansController < ApplicationController
   # GET: /physicians/5
   get "/physicians/:id" do
     # This is the show page
-    @phy = Physician.find_by(id: params[:id])
+    @patients = Patient.all
+    @appointments = Appointment.all
+    set_physician
     erb :"/physicians/show.html"
   end
 
@@ -48,4 +50,8 @@ class PhysiciansController < ApplicationController
   delete "/physicians/:id/delete" do
     redirect "/physicians"
   end
+
+ 
 end
+
+  # Method that saves all appointments to a doctor

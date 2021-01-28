@@ -10,7 +10,9 @@
     height: 100%;
     width: 100%;
   }
-
+a {
+  text-decoration: none;
+}
   /* --- Welcome Page Styles --- */
   body {
     background-color: rgb(168, 154, 116);
@@ -60,7 +62,26 @@
     position:relative;
     top:1px;
   }
- 
+  .navbar {
+    overflow: hidden;
+    background-color: #1c87c9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: #eeeeee;
+    text-align: center;
+    padding: 15px 18px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .navbar a:hover {
+    color: #ffffff;
+  }
+
 
   .wrapper {
     background: #fff;
@@ -164,5 +185,8 @@
     line-height: 24px;
   }
 
-
+    .column {
+      width: 100%;
+    }
+  
 }
