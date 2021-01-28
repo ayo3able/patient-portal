@@ -88,6 +88,7 @@ a {
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin-top: 100px;
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
@@ -133,9 +134,6 @@ a {
     width: 30%; /* 240px / 800px */
   }
 
-  .sidebar ul {
-    font-size: 14px;
-  }
 
   .branding {
     clear: both;
@@ -184,9 +182,5 @@ a {
     font-size: 18px;
     line-height: 24px;
   }
-
-    .column {
-      width: 100%;
-    }
   
 }
