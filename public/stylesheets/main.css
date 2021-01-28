@@ -155,6 +155,7 @@ a {
 
 @media screen and (max-width: 600px) {
   .wrapper {
+    margin-top: 100px;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
