@@ -5,10 +5,15 @@
     margin: 0;
     padding: 0;
   }
+  header {
+    font-family:Arial;
+  }
 
   html, body {
+    font-family:Arial;
     height: 100%;
     width: 100%;
+    
   }
 a {
   text-decoration: none;
@@ -19,6 +24,7 @@ a {
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    background-image: "/home/auntyayo/development/patient-portal/public/images/doctor patient pic2.png";
   }
   label {
     display: block;
@@ -30,13 +36,44 @@ a {
     float: inherit;
     margin-bottom: 15px;
     }
-    label:after { content: ":" }
-  
+  label:after { content: ":" }
+
+  .wel_head{
+    background-color: #1c87c9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: lightgoldenrodyellow;
+    text-align: center;
+    padding: 15px 18px;
+    font-size: 24px; ;
+
+  }
+  .wrapper {
+    text-align: center;
+    background: #fff;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin-top: 10%;
+    max-width: 100%;
+    padding: 2.25%; /* 18px / 800px */
+  }
+  .appt_table{
+    display: inline-block;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    margin-left: 5%;
+  }
   input {
     margin: .4rem 0;
   }
   .info_box{
-    padding-right: 200px;
+    padding-right: 25%px;
+  }
+
+  .edit_btn{
+    padding: 0px 5px 5px 5px;
   }
   .myButton {
     box-shadow: 0px 10px 14px -7px #276873;
@@ -79,22 +116,10 @@ a {
     font-size: 18px;
   }
   .navbar a:hover {
-    color: #ffffff;
+    color: #0e0c0c;
   }
 
 
-  .wrapper {
-    background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin-top: 100px;
-    margin: 16px auto;
-    max-width: 960px;
-    padding: 2.25%; /* 18px / 800px */
-    width: 85%;
-    float: inherit;
-  }
 
   h1 {
     font-size: 36px;
@@ -114,16 +139,13 @@ a {
   }
 
   p {
+    
     margin-bottom: 18px;
   }
 
-  .main {
-    overflow: hidden;
-  }
-
   .content {
-    float: center;
-    width: 60%; /* 480px / 800px */
+    text-align: center;
+   
   }
 
   .sidebar {
@@ -155,13 +177,21 @@ a {
 
 @media screen and (max-width: 600px) {
   .wrapper {
-    margin-top: 100px;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     width: auto;
   }
 
+  .appt_table {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+    font-size: 10px;
+    line-height: 10px;
+  }
   .content, .sidebar {
     float: none;
     width: 100%;
@@ -175,6 +205,7 @@ a {
   }
 
   h1 {
+
     font-size: 24px;
     line-height: 36px;
   }
