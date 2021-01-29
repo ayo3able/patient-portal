@@ -27,11 +27,9 @@ a {
     background-image: "/home/auntyayo/development/patient-portal/public/images/doctor patient pic2.png";
   }
   label {
-    display: block;
     font: 1rem 'Fira Sans', sans-serif;
     color: #0f0e0d;
     font-weight: bold;
-    display: block;
     width: 150px;
     float: inherit;
     margin-bottom: 15px;
@@ -42,6 +40,8 @@ a {
     background-color: #1c87c9;
     position: fixed;
     top: 0;
+    float: left;
+    margin-left: 0px;
     width: 100%;
     color: lightgoldenrodyellow;
     text-align: center;
@@ -66,7 +66,17 @@ a {
     margin-left: 5%;
   }
   input {
-    margin: .4rem 0;
+    border: 2;
+    padding: 0 14px;
+    right: 0;
+    height: 40px;
+    font-size: 13px;
+    width: 25;
+    border-radius: 0 2px 2px 0;
+    box-sizing: border-box;
+    position: relative;
+    color: rgba(0,0,0,0.87);
+    margin: 14px 12px;
   }
   .info_box{
     padding-right: 25%px;
@@ -89,7 +99,7 @@ a {
     padding:5px 13px;
     text-decoration:none;
     text-shadow:0px 1px 0px #3d768a;
-    margin-top: 15px;
+    
   }
   .myButton:hover {
     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
@@ -149,11 +159,11 @@ a {
   }
 
   .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
-    float: inherit;
+    background: #bdc1c3;
+    display: inline-block;
     padding: 2.08333333333%; /* 5px / 240px */
     width: 30%; /* 240px / 800px */
+    margin-top: 10px ;
   }
 
 
