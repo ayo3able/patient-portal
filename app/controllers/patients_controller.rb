@@ -23,7 +23,15 @@ class PatientsController < ApplicationController
   # GET: /patients/5/edit
   get "/patients/:id/edit" do
     set_patient
-    erb :"/patients/edit.html"
+    if logged_in?
+    if test @patient.physicians == current_phys
+     erb :"/patients/edit.html"
+    else
+      redirect "/physicians/#{current_phys.id}"
+    end
+  else
+    redirect'/'
+  end
   end
 
   # PATCH: /patients/5

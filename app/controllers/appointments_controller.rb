@@ -12,9 +12,7 @@ class AppointmentsController < ApplicationController
 
   # POST: /appointments
   post "/appointments" do
-    #create new appointment and save into DB
-    #Only want to create an appointment if a Physician is logged in
-    #save only if appointment has a time and a date
+    
     if !logged_in?
       redirect '/'
     end
@@ -30,7 +28,7 @@ class AppointmentsController < ApplicationController
   # GET: /appointments/5
   get "/appointments/:id" do
     set_appointment
-    erb :"/physicians/show.html"
+    erb :"/appointments/show.html"
   end
   
  
@@ -38,15 +36,30 @@ class AppointmentsController < ApplicationController
   # GET: /appointments/5/edit
   get "/appointments/:id/edit" do
     set_appointment
+    if logged_in?
+      if @appointment.physician_id == current_phys
     erb :"/appointments/edit.html"
-  end
+      else 
+        redirect"physician/#{current_phys.id}"
+      end
+    else
+        redirect '/'
+      end
+    end
 
   # PATCH: /appointments/5
   patch "/appointments/:id" do
     set_appointment
+    if logged_in?
+      if @appointment.physician_id == current_phys
     @appointment.update(appointment_date: params[:appointment_date])
-    
     redirect "/appointments/#{@appointment.id}"
+      else
+        redirect "physicians/#{current_phys.id}"
+      end
+    else
+      redirect "/"
+    end
   end
 
   # DELETE: /appointments/5/delete
