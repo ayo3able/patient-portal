@@ -52,7 +52,7 @@ class AppointmentsController < ApplicationController
   # DELETE: /appointments/5/delete
   delete "/appointments/:id/delete" do
     @appointment.delete
-    redirect "/"
+    redirect "/physicians/show.html"
   end
   
 

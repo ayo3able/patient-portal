@@ -6,21 +6,27 @@
 <table class="appt_table">
   <thead >
     <th>Appoinments</th>
+    <th>Edit</th>
+    <th>Delete</th>
     <th>PATIENT</th>
     <th>Insurance</th>
     <th>Age</th>
     <th class="info_box">Address </th>
     <th>Edit</th>
+    <th>Delete</th>
      </thead>
  
   <% current_phys.patients.zip(current_phys.appointments).each do |p, a| %>
   <tr>
   <td><%= a.appointment_date%></td>
+  <td class="edit_btn"><a class="myButton" href="/appointments/<%=a.id%>/edit">Edit</a></td>
+  <td class="delete"><a class="del_btn" href="/patients/<%=a.id%>">Delete</a></td>
   <td><%= p.name %></td>
   <td><%= p.insurance %></td>
   <td><%= p.age %></td>
   <td><%= p.address %></td>
-  <td class="edit_btn"><a class="myButton" href="/appointments/<%=set_appointment.id%>/edit">Edit</a></td>
+  <td class="edit_btn"><a class="myButton" href="/patients/<%=p.id%>/edit">Edit</a></td>
+  <td class="delete"><a class="del_btn" href="/patients/<%=p.id%>/edit">Delete</a></td>
   </tr>
 <% end %>
 </table>

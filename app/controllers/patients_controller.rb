@@ -29,15 +29,14 @@ class PatientsController < ApplicationController
   # PATCH: /patients/5
   patch "/patients/:id" do
     set_patient
-    redirect "/patients/:id"
+      @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
+    redirect "/patients/#{@patient.id}"
   end
 
   # DELETE: /patients/5/delete
-  delete "/patients/:id/delete" do
-    redirect "/patients"
+    delete "/patients/:id/delete" do
+      @patient.delete
+      redirect "/physicians/show.html"
   end
 
-
-   # Method that finds a patient, appointment to a specific doctor
-  # Method that finds all the patients of one doctor
 end
