@@ -1,27 +1,12 @@
 <div class="pat_table">
-<table>
+<table class="appt_table">
 <thead >
-<th><h2>New Appointment</h2></th>
 <th><h2>New Patient</h2></th>
+<th><h2>Appoinment</h2></th>
 </thead>
 <td>
-<form class="" action="/appointments" method="post">
-
-<h4>Office hours are</h4>
-<h4> Monday - Saturday 9am to 6pm</h4>
-<br>
-
-<input type="datetime-local" id="meeting-time"
-       name="appointment_date" value="2021-01-23T19:30"
-       min="2021-01-01T00:00" max="2021-12-31T00:00">
-<br>
-<input type="submit" class="myButton" name="appointment_date" value="Submit">
-</form>
-</td>
-<td>
 <form class="" action="/patients" method="post">
-        
-       <input type="" id="" name="name" placeholder="Name" value="">
+ <input type="" id="" name="name" placeholder="Name" value="">
        <br>
        
        <input type="" id="" name="insurance" placeholder="Insurance" value="">
@@ -32,10 +17,22 @@
        
         <input name="address"  placeholder="Address" autocomplete="street-address">
        <br>
-       <input type="submit" class="myButton" name="" value="Submit">
        
+       </td><br>
+    <br>
+       <td> 
+      <h4>Office hours are</h4>
+    <h4> Monday - Saturday 9am to 6pm</h4>
+
+
+    <input type="datetime-local" id="meeting-time"
+       name="appointment_date" value="2021-01-23T19:30"
+       min="2021-01-01T00:00" max="2021-12-31T00:00">
+    
+      <td><input type="submit" class="myButton" name="" value="Submit"></td>
+  
+ </td>      
 </form>
-</td>
 </table>
 </div>
 

@@ -1,2 +1,10 @@
 
-<h1>Edit Appointment</h1>
+<h3>Edit Appointments</h3>
+<form class="" action="/appointments/<%set_appointment%>" method="post">
+<input type="datetime-local" id="meeting-time"
+       name="appointment_date" value="2021-01-23T19:30"
+       min="2021-01-01T00:00" max="2021-12-31T00:00">
+       <br>
+
+<input type="submit" class="myButton" name="appointment_date" value="Edit">
+</form>

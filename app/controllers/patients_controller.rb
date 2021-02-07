@@ -1,8 +1,13 @@
 class PatientsController < ApplicationController
 
-  # GET: /patients
-  get "/patients" do
-    erb :"/patients/index.html"
+  
+  # POST: /patients
+  post "/patients/:id/new" do
+    if !logged_in?
+      redirect"/"
+    end
+    erb :"/patients/new.html"
+  
   end
 
   # GET: /patients/new
@@ -16,7 +21,8 @@ class PatientsController < ApplicationController
   end
 
   # GET: /patients/5
-  get "/patients/:id" do
+  get "/patients" do
+    @patient = current_phys.patients.all
     erb :"/patients/show.html"
   end
 
@@ -24,7 +30,7 @@ class PatientsController < ApplicationController
   get "/patients/:id/edit" do
     set_patient
     if logged_in?
-    if test @patient.physicians == current_phys
+    if @patient.physicians == current_phys
      erb :"/patients/edit.html"
     else
       redirect "/physicians/#{current_phys.id}"

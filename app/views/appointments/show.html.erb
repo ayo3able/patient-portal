@@ -9,7 +9,7 @@
   <tr>
   <td><%= a.appointment_date%></td>
   <td class="edit_btn"><a class="myButton" href="/appointments/<%=a.id%>/edit">Edit</a></td>
-  <td class="delete"><a class="del_btn" href="/appointments/<%=a.id%>/delete">Delete</a></td>
+  <td class="delete"><input type="hidden" value="delete" name=""><a class="del_btn" href="/appointments/<%=a.id%>/delete">Delete</a></td>
   </tr>
 <% end %>
 </table>

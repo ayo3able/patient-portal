@@ -33,6 +33,10 @@ class ApplicationController < Sinatra::Base
    
   end
 
+  get '/patients/show' do
+    erb :"/patients/show.html"
+  end
+
   get "/log_out" do
     session.clear
     redirect "/"

@@ -12,7 +12,6 @@ class AppointmentsController < ApplicationController
 
   # POST: /appointments
   post "/appointments" do
-    
     if !logged_in?
       redirect '/'
     end
@@ -37,10 +36,10 @@ class AppointmentsController < ApplicationController
   get "/appointments/:id/edit" do
     set_appointment
     if logged_in?
-      if @appointment.physician_id == current_phys
+      if @appointment.physician_id == current_phys.id
     erb :"/appointments/edit.html"
       else 
-        redirect"physician/#{current_phys.id}"
+        redirect"physicians/#{current_phys.id}"
       end
     else
         redirect '/'

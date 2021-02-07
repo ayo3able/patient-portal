@@ -49,6 +49,7 @@
   }
   .wrapper {
     text-align: center;
+    align-content: center;
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -62,6 +63,7 @@
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin-left: 5%;
+    padding: 20px;
   }
   input {
     border: 2;
