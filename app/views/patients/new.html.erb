@@ -5,32 +5,35 @@
 <th><h2>Appoinment</h2></th>
 </thead>
 <td>
+
 <form class="" action="/patients" method="post">
- <input type="" id="" name="name" placeholder="Name" value="">
+<%if logged_in?%>
+<%current_phys.nu_patient do |p|%>
+ <input type="text" id="" name="name" placeholder="Name" value=""required>
        <br>
        
-       <input type="" id="" name="insurance" placeholder="Insurance" value="">
+       <input type="text" id="" name="insurance" placeholder="Insurance" value=""required>
        <br>
       
-       <input type="" id="" name="age" placeholder="Age" value="">
+       <input type="number" id="" name="age" placeholder="Age" value=""required>
        <br>
        
-        <input name="address"  placeholder="Address" autocomplete="street-address">
+        <input type="text" name="address"  placeholder="Address" autocomplete="street-address"required>
        <br>
-       
        </td><br>
+       <%end%>
     <br>
        <td> 
+       <%current_phys.nu_appointment do %>
       <h4>Office hours are</h4>
     <h4> Monday - Saturday 9am to 6pm</h4>
 
-
     <input type="datetime-local" id="meeting-time"
-       name="appointment_date" value="2021-01-23T19:30"
-       min="2021-01-01T00:00" max="2021-12-31T00:00">
+       name="appointment_date" value="2021-01-23T09:00"
+       min="2021-01-01T00:00" max="2021-12-31T00:00"required>
+       <% end %>
     
       <td><input type="submit" class="myButton" name="" value="Submit"></td>
-  
  </td>      
 </form>
 </table>

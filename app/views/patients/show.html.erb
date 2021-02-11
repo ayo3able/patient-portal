@@ -19,6 +19,7 @@
   <td><%= p.address %></td>
   <td><%= p.id %></td>
   <td ><a class="myButton" href="/patients/<%=p.id%>/edit">Edit</a></td>
+  
   <td><form class="" action="/patients/<%=p.id%>/delete" method="post">
   <input type="hidden" name="_method" value="DELETE">
   <input class="myButton" type="submit" name="" value="delete patient"></td>

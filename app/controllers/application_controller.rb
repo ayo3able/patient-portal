@@ -41,10 +41,6 @@ class ApplicationController < Sinatra::Base
     session.clear
     redirect "/"
   end
-
-  post '/appointments' do
-    "Hello World"
-  end
  
 
   helpers do

@@ -1,13 +1,18 @@
 class PatientsController < ApplicationController
 
-  
+  # create 
   # POST: /patients
-  post "/patients/:id/new" do
+  post "/patients" do
     if !logged_in?
-      redirect"/"
-    end
-    erb :"/patients/new.html"
-  
+       redirect"/"
+     end
+        if !params.empty?
+        nu_patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
+        nu_appointment = nu_patient.appointments.build(appointment_date: params[:appointment_date], physician_id: current_phys.id)  
+        redirect"/physicians/show" 
+        else
+          redirect "/patients/new"
+        end
   end
 
   # GET: /patients/new
@@ -15,34 +20,43 @@ class PatientsController < ApplicationController
     erb :"/patients/new.html"
   end
 
+
+  # Read
   # POST: /patients
-  post "/patients" do
-    redirect "/patients"
+  post "/patients/" do
+    if logged_in?
+      current_phys.patients.all
+     else
+      redirect"/"
+    end
   end
 
   # GET: /patients/5
   get "/patients" do
-    @patient = current_phys.patients.all
-    erb :"/patients/show.html"
+     erb :"/patients/show.html" 
   end
 
+
+  # Update
   # GET: /patients/5/edit
   get "/patients/:id/edit" do
     set_patient
     if logged_in?
-    @patient.physicians == current_phys
+      if @patient.physicians == current_phys
      erb :"/patients/edit.html"
   else
     redirect'/'
   end
   end
-
+end
   # PATCH: /patients/5
-  patch "/patients/:id" do
+  patch "/patients/:id/edit" do
     set_patient
       @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
-    redirect "/patients/#{@patient.id}"
+    redirect "/physicians/show.html"
   end
+
+  # Destroy
 
   # DELETE: /patients/5/delete
     delete "/patients/:id/delete" do
