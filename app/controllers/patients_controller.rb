@@ -30,11 +30,8 @@ class PatientsController < ApplicationController
   get "/patients/:id/edit" do
     set_patient
     if logged_in?
-    if @patient.physicians == current_phys
+    @patient.physicians == current_phys
      erb :"/patients/edit.html"
-    else
-      redirect "/physicians/#{current_phys.id}"
-    end
   else
     redirect'/'
   end
@@ -49,8 +46,15 @@ class PatientsController < ApplicationController
 
   # DELETE: /patients/5/delete
     delete "/patients/:id/delete" do
-      @patient.delete
-      redirect "/physicians/show.html"
+      set_patient
+      if logged_in?
+        @patient.delete && @patient.appointments.delete
+        redirect "/physicians/show.html"
+      else
+      redirect "/physicians/show.html"  
+      end
+      
+      
   end
 
 end

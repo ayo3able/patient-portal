@@ -45,11 +45,6 @@ class ApplicationController < Sinatra::Base
   post '/appointments' do
     "Hello World"
   end
-
-  get '/home/auntyayo/development/patient-portal/public/images/doctor%20patient%20pic2.png' do
-    erb :"public/images/doctor patient pic2.png"
-  end
- 
  
 
   helpers do
@@ -75,6 +70,8 @@ class ApplicationController < Sinatra::Base
       @phy = Physician.find_by(id: params[:id])
     end
 
+  
+  
 
   end
   

@@ -8,8 +8,13 @@
   <% current_phys.appointments.each do |a| %>
   <tr>
   <td><%= a.appointment_date%></td>
+  <% if logged_in?%>
   <td class="edit_btn"><a class="myButton" href="/appointments/<%=a.id%>/edit">Edit</a></td>
-  <td class="delete"><input type="hidden" value="delete" name=""><a class="del_btn" href="/appointments/<%=a.id%>/delete">Delete</a></td>
+  
+  <td class="delete"><form class="" action="/appointments/<%=p.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class="myButton" type="submit" name="" value="delete appointment"></td>
   </tr>
+  <% end %>
 <% end %>
 </table>

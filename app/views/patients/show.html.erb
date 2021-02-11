@@ -10,7 +10,7 @@
     <th>Edit</th>
     <th>Delete</th>
      </thead>
- 
+ <% if logged_in?%>
   <% current_phys.patients.each do |p| %>
   <tr>
   <td><%= p.name %></td>
@@ -18,8 +18,11 @@
   <td><%= p.age %></td>
   <td><%= p.address %></td>
   <td><%= p.id %></td>
-  <td class="edit_btn"><a class="myButton" href="/patients/<%=p.id%>/edit">Edit</a></td>
-  <td class="edit_btn"><a class="del_btn" href="/patients/<%=p.id%>/delete">Delete</a></td>
+  <td ><a class="myButton" href="/patients/<%=p.id%>/edit">Edit</a></td>
+  <td><form class="" action="/patients/<%=p.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class="myButton" type="submit" name="" value="delete patient"></td>
   </tr>
+  <% end %>
 <% end %>
 </table>

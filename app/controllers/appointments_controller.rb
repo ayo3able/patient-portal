@@ -63,8 +63,15 @@ class AppointmentsController < ApplicationController
 
   # DELETE: /appointments/5/delete
   delete "/appointments/:id/delete" do
-    @appointment.delete
-    redirect "/physicians/show.html"
+    set_appointment
+    if logged_in?
+     @appointment.delete 
+     redirect "/physicians/show.html"
+    else
+     redirect "/physicians/show.html" 
+    end
+    
+    
   end
   
 
