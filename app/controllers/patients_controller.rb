@@ -7,8 +7,10 @@ class PatientsController < ApplicationController
        redirect"/"
      end
         if !params.empty?
-        nu_patient = Patient.create(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
-        nu_appointment = nu_patient.appointments.build(appointment_date: params[:appointment_date], physician_id: current_phys.id)  
+         
+        nu_patient = Patient.create(params[:patient])
+        nu_appointment = nu_patient.appointments.build(appointment_date: params[:appointment][:appointment_date], physician_id: current_phys.id)  
+        nu_appointment.save
         redirect"/physicians/show" 
         else
           redirect "/patients/new"
@@ -23,17 +25,17 @@ class PatientsController < ApplicationController
 
   # Read
   # POST: /patients
-  post "/patients/" do
-    if logged_in?
-      current_phys.patients.all
-     else
-      redirect"/"
-    end
-  end
+  # post "/patients" do
+  #   if logged_in?
+  #     current_phys.patients.all
+  #    else
+  #     redirect"/"
+  #   end
+  # end
 
   # GET: /patients/5
   get "/patients" do
-     erb :"/patients/show.html" 
+     erb :"/patients/index.html" 
   end
 
 

@@ -1,12 +1,13 @@
 
 <h3>Edit Appointments</h3>
-<form class="" action="/appointments/<%set_appointment%>/edit" method="patch">
+
+<form action="/appointments/<%=@appointment.id%>/edit" method="post">
+<input type="hidden" name="_method" value="patch">
 <input type="datetime-local" id="meeting-time"
-       name="appointment_date" value="2021-01-23T19:30"
-       min="2021-01-01T00:00" max="2021-12-31T00:00">
+       name="appointment_date" value="<%= @appointment.appointment_date%>"
+       min="2021-01-01T00:00" max="2021-12-31T00:00"/>
        <br>
-       <input type="" id="" name="patient_id" placeholder="Patient ID" value="">
     <br>
 
-<input type="submit" class="myButton" name="appointment_date" value="Edit">
+<input type="submit" class="myButton"  value="Edit"/>
 </form>

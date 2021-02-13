@@ -17,14 +17,21 @@
     <th>Delete</th>
      </thead>
  <% if logged_in?%>
-  <% current_phys.patients.zip(current_phys.appointments).each do |p, a| %>
+  <% current_phys.patients.each do |p| %>
+  
   <tr>
+  <% p.appointments.each do |a|%>
   <td><%= a.appointment_date%></td>
   <td class="edit_btn"><a class="myButton" href="/appointments/<%=a.id%>/edit">edit</a></td>
 
-  <td class="delete"><form class="" action="/appointments/<%=p.id%>/delete" method="post">
-  <input  type="hidden" name="_method" value="DELETE">
-  <input class="myButton" type="submit" name="" value="delete appt"></td>
+  <td class="delete">
+    <form class="" action="/appointments/<%a.id%>/delete" method="post">
+  
+      <input  type="hidden" name="_method" value="DELETE">
+      <input class="myButton" type="submit" name="" value="delete appt">
+    </form>
+    <% end %>
+    </td>
   <td><%= p.name %></td>
   <td><%= p.insurance %></td>
   <td><%= p.age %></td>

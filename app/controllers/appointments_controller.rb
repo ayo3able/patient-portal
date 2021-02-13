@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   end
 
   # POST: /appointments
-  post "/appointments/new" do
+  post "/appointments" do
     if !logged_in?
       redirect '/'
     end
@@ -24,13 +24,19 @@ class AppointmentsController < ApplicationController
  
   # Read
   # GET: /appointments/5
-  get "/appointments/:id/show" do
+  get "/appointments/:id" do
+    @appointments = Appointment.find_by(id: params[:id])
     erb :"/appointments/show.html"
   end
 
-  post "/appointments/:id/show" do
-    current_phys.appointments.all
-  end
+  # get "/appointments" do
+  #  @appointments = current_phys.appointments
+  # end
+
+  get '/appointments' do
+    @appointments = Appointment.all
+     erb :"/appointments/index.html"
+   end
   
  
 # Update
@@ -52,7 +58,9 @@ class AppointmentsController < ApplicationController
   patch "/appointments/:id/edit" do
     set_appointment
     if logged_in?
-      if set_appointment.physician_id == current_phys && @appointment.patient_id != ""
+      if @appointment.physician == current_phys
+        binding.pry
+       #appointment_date is nil
     @appointment.update(appointment_date: params[:appointment_date])
     redirect "/appointments/#{@appointment.id}"
       else
