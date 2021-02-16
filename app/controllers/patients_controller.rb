@@ -17,25 +17,13 @@ class PatientsController < ApplicationController
         end
   end
 
+  get '/patients' do
+    erb :"/patients/show.html"
+  end
+
   # GET: /patients/new
   get "/patients/new" do
     erb :"/patients/new.html"
-  end
-
-
-  # Read
-  # POST: /patients
-  # post "/patients" do
-  #   if logged_in?
-  #     current_phys.patients.all
-  #    else
-  #     redirect"/"
-  #   end
-  # end
-
-  # GET: /patients/5
-  get "/patients" do
-     erb :"/patients/index.html" 
   end
 
 
@@ -45,18 +33,30 @@ class PatientsController < ApplicationController
     set_patient
     if logged_in?
       if @patient.physicians == current_phys
-     erb :"/patients/edit.html"
-  else
-    redirect'/'
+        erb :"/patients/edit.html"
+      else 
+        redirect"physicians/#{current_phys.id}"
+      end
+    else
+      redirect'/'
+    end
   end
-  end
-end
+
   # PATCH: /patients/5
-  patch "/patients/:id/edit" do
-    set_patient
-      @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
-    redirect "/physicians/show.html"
-  end
+    patch "/patients/:id/edit" do
+      set_patient
+      if logged_in?
+        if @appointment.physician == current_phys
+          @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
+           redirect "/patients/#{@patients.id}"
+        else
+          redirect "physicians/#{current_phys.id}"
+        end
+      else
+        redirect "/"
+      end
+    end
+
 
   # Destroy
 
@@ -65,9 +65,9 @@ end
       set_patient
       if logged_in?
         @patient.delete && @patient.appointments.delete
-        redirect "/physicians/show.html"
+        redirect "/physicians/#{current_phys.id}"
       else
-      redirect "/physicians/show.html"  
+      redirect "/physicians/#{current_phys.id}"  
       end
       
       

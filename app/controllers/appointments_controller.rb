@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
       @appointment = Appointment.create(appointment_date: params[:appointment_date],
       patient_id: params[:patient_id],
       physician_id: current_phys.id)
-      redirect "/physicians/#{current_phys.id}/show"
+      redirect "/physicians/#{current_phys.id}"
     else
       redirect '/appointments/new'
     end
@@ -24,19 +24,11 @@ class AppointmentsController < ApplicationController
  
   # Read
   # GET: /appointments/5
-  get "/appointments/:id" do
+  get "/appointments" do
     @appointments = Appointment.find_by(id: params[:id])
     erb :"/appointments/show.html"
   end
 
-  # get "/appointments" do
-  #  @appointments = current_phys.appointments
-  # end
-
-  get '/appointments' do
-    @appointments = Appointment.all
-     erb :"/appointments/index.html"
-   end
   
  
 # Update
@@ -59,8 +51,6 @@ class AppointmentsController < ApplicationController
     set_appointment
     if logged_in?
       if @appointment.physician == current_phys
-        binding.pry
-       #appointment_date is nil
     @appointment.update(appointment_date: params[:appointment_date])
     redirect "/appointments/#{@appointment.id}"
       else

@@ -33,9 +33,6 @@ class ApplicationController < Sinatra::Base
    
   end
 
-  # get '/patients/show' do
-  #   erb :"/patients/show.html"
-  # end
 
   get "/log_out" do
     session.clear
@@ -43,7 +40,6 @@ class ApplicationController < Sinatra::Base
   end
 
  
-  #move to appointments controller
 
  
 
@@ -65,13 +61,6 @@ class ApplicationController < Sinatra::Base
     def set_patient
       @patient = Patient.find_by(id: params[:id])
     end
-
-    def set_physician
-      @phy = Physician.find_by(id: params[:id])
-    end
-
-  
-  
 
   end
   

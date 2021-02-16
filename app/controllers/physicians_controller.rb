@@ -5,10 +5,7 @@ class PhysiciansController < ApplicationController
   get "/sign_up" do
     erb :"/physicians/new.html"
   end
-  # GET: /physicians
-  get "/physicians" do
-    erb :"/physicians/index.html"
-  end
+
 
   # POST: /physicians logging in
   post "/physicians" do
@@ -21,7 +18,7 @@ class PhysiciansController < ApplicationController
       else
         phy_info = Physician.create(name: params[:name], password: params[:password])
         session[:physician_id] = phy_info.id
-        redirect "/physicians/#{@phy_info.id}/show"
+        redirect "/physicians/#{@phy_info.id}"
       end
     end
   end
@@ -30,7 +27,7 @@ class PhysiciansController < ApplicationController
   # GET: /physicians/5
   get "/physicians/:id" do
     # This is the show page
-    current_phys.patients.all
+    @patients = current_phys.patients
     erb :"/physicians/show.html"
    
   end

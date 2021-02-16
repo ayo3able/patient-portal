@@ -1,18 +1,20 @@
 
 <h3>Edit Patient</h3>
-<form class="" action="/patients/<%set_patient%>/edit" method="post">
-<input type="" id="" name="name" placeholder="Name" value="">
+<form action="/patients/<%set_patient%>/edit" method="post">
+<input type="hidden" name="_method" value="patch">
+
+<input type="Text" name="name" placeholder="Name" >
        <br>
        
-       <input type="Text" id="" name="insurance" placeholder="Insurance">
+       <input type="Text" name="insurance" placeholder="Insurance">
        <br>
       
-       <input type="" id="" name="age" placeholder="Age">
+       <input type="Number" name="age" placeholder="Age">
        <br>
        
-        <input name="address"  placeholder="Address" autocomplete="street-address">
+        <input type="Text" name="address"  placeholder="Address" >
        <br>
     <br>
 
-<input type="submit" class="myButton" name="" value="Edit">
+<input type="submit" class="myButton" value="Edit">
 </form>
