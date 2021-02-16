@@ -1,19 +1,23 @@
 @media screen {
+
   /* --- Reset Styles --- */
   * {
     list-style: none;
     margin: 0;
     padding: 0;
   }
+
   header {
-    font-family:Arial;
+    font-family: Arial;
   }
 
-  html, body {
-    font-family:Arial;
+
+  html,
+  body {
+    font-family: Arial;
     height: 100%;
     width: 100%;
-    
+
   }
 
   /* --- Welcome Page Styles --- */
@@ -24,6 +28,7 @@
     line-height: 18px;
     background-image: "/home/auntyayo/development/patient-portal/public/images/doctor patient pic2.png";
   }
+
   label {
     font: 1rem 'Fira Sans', sans-serif;
     color: #0f0e0d;
@@ -31,10 +36,13 @@
     width: 150px;
     float: inherit;
     margin-bottom: 15px;
-    }
-  label:after { content: ":" }
+  }
 
-  .wel_head{
+  label:after {
+    content: ":"
+  }
+
+  .wel_head {
     background-color: #1c87c9;
     position: fixed;
     top: 0;
@@ -44,157 +52,171 @@
     color: lightgoldenrodyellow;
     text-align: center;
     padding: 15px 18px;
-    font-size: 24px; ;
-
-  }
-  .wrapper {
-    text-align: center;
-    align-content: center;
-    background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin-top: 10%;
-    max-width: 100%;
-    padding: 2.25%; /* 18px / 800px */
-  }
-  .appt_table{
-    display: inline-block;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    margin-left: 5%;
-    padding: 20px;
-  }
-  input {
-    border: 2;
-    padding: 0 14px;
-    right: 0;
-    height: 40px;
-    font-size: 13px;
-    width: 25;
-    border-radius: 0 2px 2px 0;
-    box-sizing: border-box;
-    position: relative;
-    color: rgba(0,0,0,0.87);
-    margin: 14px 12px;
-  }
-
-  .edit_btn{
-    padding: 0px 5px 5px 5px;
-  }
-  .myButton {
-    box-shadow: 0px 10px 14px -7px #276873;
-    background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-    background-color:#599bb3;
-    border-radius:8px;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:10px;
-    font-weight:bold;
-    padding:5px 13px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #3d768a;
-    
-  }
-  .myButton:hover {
-    background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-    background-color:#408c99;
-  }
-  .myButton:active {
-    position:relative;
-    top:1px;
-  }
-
-
-  .del_btn:hover a{
-    background:linear-gradient(to bottom, #994053 5%, #b35959 100%);
-    background-color:#61232b;
-  }
-
-  .del_btn:active a {
-    position:relative;
-    top:1px;
-  }
-  .pat_table {
-    justify-content: center;
-  }
-
-  .navbar {
-    overflow: hidden;
-    background-color: #1c87c9;
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  .navbar a {
-    float: left;
-    display: block;
-    color: #eeeeee;
-    text-align: center;
-    padding: 15px 18px;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  .navbar a:hover {
-    color: #0e0c0c;
-  }
-
-
-
-  h1 {
-    font-size: 36px;
-    line-height: 54px;
-  }
-
-  h2 {
-    border-bottom: 2px solid #ccc;
     font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 16px;
+    ;
+
   }
 
-  h3 {
-    font-size: 18px;
-    line-height: 36px;
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 10px;
   }
+}
 
-  p {
-    
-    margin-bottom: 18px;
-  }
+.wrapper {
+  text-align: center;
+  align-content: center;
+  background: #fff;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  margin-top: 10%;
+  max-width: 100%;
+  padding: 2.25%;
+  /* 18px / 800px */
+}
 
-  .content {
-    text-align: center;
-   
-  }
+.appt_table {
+  display: inline-block;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  margin-left: 5%;
+  padding: 20px;
+}
 
-  .sidebar {
-    background: #fff;
-    display: inline-block;
-    padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-    margin-top: 10px ;
-  }
+input {
+  border: 2;
+  padding: 0 14px;
+  right: 0;
+  height: 40px;
+  font-size: 13px;
+  width: 25;
+  border-radius: 0 2px 2px 0;
+  box-sizing: border-box;
+  position: relative;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 14px 12px;
+}
+
+.edit_btn {
+  padding: 0px 5px 5px 5px;
+}
+
+.myButton {
+  box-shadow: 0px 10px 14px -7px #276873;
+  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background-color: #599bb3;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px 13px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
+
+}
+
+.myButton:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  background-color: #408c99;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
 
 
-  .branding {
-    clear: both;
-  }
+.del_btn:hover a {
+  background: linear-gradient(to bottom, #994053 5%, #b35959 100%);
+  background-color: #61232b;
+}
 
-  footer.branding {
-    border-top: 2px solid #ccc;
-    margin-top: 20px;
-    padding-top: 20px;
-  }
-    /*  Appointment Page Styles*/
+.del_btn:active a {
+  position: relative;
+  top: 1px;
+}
 
-    table, th, td {
-      border: 1px solid black;
-      padding: 15px;
-      margin: 10px;
-    }
+.pat_table {
+  justify-content: center;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #1c87c9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #eeeeee;
+  text-align: center;
+  padding: 15px 18px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  color: #0e0c0c;
+}
+
+
+
+h1 {
+  font-size: 36px;
+  line-height: 54px;
+}
+
+h2 {
+  border-bottom: 2px solid #ccc;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 36px;
+}
+
+p {
+
+  margin-bottom: 18px;
+}
+
+.content {
+  text-align: center;
+
+}
+
+.sidebar {
+  background: #fff;
+  display: inline-block;
+  padding: 2.08333333333%;
+  /* 5px / 240px */
+  width: 30%;
+  /* 240px / 800px */
+  margin-top: 10px;
+}
+
+
+.branding {
+  clear: both;
+}
+
+footer.branding {
+  border-top: 2px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -214,7 +236,9 @@
     font-size: 10px;
     line-height: 10px;
   }
-  .content, .sidebar {
+
+  .content,
+  .sidebar {
     float: none;
     width: 100%;
   }
@@ -236,5 +260,5 @@
     font-size: 18px;
     line-height: 24px;
   }
-  
+
 }

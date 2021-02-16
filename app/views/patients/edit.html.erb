@@ -1,8 +1,7 @@
 
 <h3>Edit Patient</h3>
-<form action="/patients/<%set_patient%>/edit" method="post">
+<form action="/patients/<%=@patient.id%>/edit" method="post">
 <input type="hidden" name="_method" value="patch">
-
 <input type="Text" name="name" placeholder="Name" >
        <br>
        

@@ -36,24 +36,18 @@ class AppointmentsController < ApplicationController
   get "/appointments/:id/edit" do
     set_appointment
     if logged_in?
-      if set_appointment.physician_id == current_phys.id
-    erb :"/appointments/edit.html"
-      else 
-        redirect"physicians/#{current_phys.id}"
-      end
+       erb :"/appointments/edit.html"
     else
-        redirect '/'
-      end
+      redirect '/'
     end
+  end
 
   # PATCH: /appointments/5
   patch "/appointments/:id/edit" do
     set_appointment
     if logged_in?
-      if @appointment.physician == current_phys
-    @appointment.update(appointment_date: params[:appointment_date])
-    redirect "/appointments/#{@appointment.id}"
-      else
+      if @appointment.physician.id == current_phys.id
+        @appointment.update(appointment_date: params[:appointment_date])
         redirect "physicians/#{current_phys.id}"
       end
     else

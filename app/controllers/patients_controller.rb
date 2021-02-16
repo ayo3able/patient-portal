@@ -32,29 +32,26 @@ class PatientsController < ApplicationController
   get "/patients/:id/edit" do
     set_patient
     if logged_in?
-      if @patient.physicians == current_phys
+      if @patient.physicians.ids == current_phys
         erb :"/patients/edit.html"
-      else 
-        redirect"physicians/#{current_phys.id}"
+        redirect "/physicians/#{current_phys.id}"
       end
     else
-      redirect'/'
+        redirect '/'
     end
   end
 
   # PATCH: /patients/5
     patch "/patients/:id/edit" do
       set_patient
-      if logged_in?
-        if @appointment.physician == current_phys
-          @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
-           redirect "/patients/#{@patients.id}"
+        if logged_in?
+          if @patient.physicians.ids == current_phys.id
+            @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
+            redirect "physicians/#{current_phys.id}"
+          end
         else
-          redirect "physicians/#{current_phys.id}"
+          redirect '/'
         end
-      else
-        redirect "/"
-      end
     end
 
 
