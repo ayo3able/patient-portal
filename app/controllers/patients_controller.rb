@@ -32,8 +32,10 @@ class PatientsController < ApplicationController
   get "/patients/:id/edit" do
     set_patient
     if logged_in?
-      if @patient.physicians.ids == current_phys
+    
+      if @patient.physicians.include?(current_phys)
         erb :"/patients/edit.html"
+      else
         redirect "/physicians/#{current_phys.id}"
       end
     else
@@ -45,7 +47,7 @@ class PatientsController < ApplicationController
     patch "/patients/:id/edit" do
       set_patient
         if logged_in?
-          if @patient.physicians.ids == current_phys.id
+          if @patient.physicians.includes(current_phys)
             @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
             redirect "physicians/#{current_phys.id}"
           end

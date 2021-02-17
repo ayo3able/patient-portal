@@ -18,12 +18,16 @@
   <body>
   <header>
     <nav class="navbar">
-      <a href="/physicians/<%= current_phys%>"> Home</a>
+    <% if logged_in? %>
+      <a href="/physicians/<%=current_phys.id%>"> Home</a>
       <a href="/appointments/new"> New Appoinment</a> 
       <a href="/patients/new"> New Patient</a>
       <a href="/patients"> All Patients</a>
       <a href="/appointments>"> All Appoinments</a>
       <a href="/log_out"> Log Out</a>
+      <%else %>
+      <a href="/log_in">Log In</a>
+      <%end%>
     </nav>
   </header>
     <div class="wrapper">

@@ -12,7 +12,7 @@ class AppointmentsController < ApplicationController
     if !logged_in?
       redirect '/'
     end
-    if params[:appointment_date] && params[:id] != ""
+    if params[:appointment_date] !="" && params[:id] != ""
       @appointment = Appointment.create(appointment_date: params[:appointment_date],
       patient_id: params[:patient_id],
       physician_id: current_phys.id)
@@ -46,7 +46,7 @@ class AppointmentsController < ApplicationController
   patch "/appointments/:id/edit" do
     set_appointment
     if logged_in?
-      if @appointment.physician.id == current_phys.id
+      if @appointment.physician.id == (current_phys.id)
         @appointment.update(appointment_date: params[:appointment_date])
         redirect "physicians/#{current_phys.id}"
       end
