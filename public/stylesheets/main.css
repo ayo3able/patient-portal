@@ -26,7 +26,6 @@
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
-    background-image: "/home/auntyayo/development/patient-portal/public/images/doctor patient pic2.png";
   }
 
   label {
@@ -42,19 +41,9 @@
     content: ":"
   }
 
-  .wel_head {
-    background-color: #1c87c9;
-    position: fixed;
-    top: 0;
-    float: left;
-    margin-left: 0px;
-    width: 100%;
-    color: lightgoldenrodyellow;
-    text-align: center;
-    padding: 15px 18px;
-    font-size: 24px;
-    ;
-
+  .edit_pat {
+    display: inline-flex;
+    width: 45%%;
   }
 
   table,

@@ -1,7 +1,19 @@
 
 <h3>Edit Patient</h3>
-<form action="/patients/<%=@patient.id%>/edit" method="post">
+<div  class="edit_pat" >
+<table>
+<th> Previous Info</th>
+<tr><td><%=@patient.name%></td></tr>
+<tr><td><%=@patient.insurance%></td></tr>
+<tr><td><%=@patient.age%></td></tr>
+<tr><td><%=@patient.address%></td></tr>
+</table>
+
+
+<form  action="/patients/<%=@patient.id%>/edit" method="post">
 <input type="hidden" name="_method" value="patch">
+<label>New Info</label>
+<br>
 <input type="Text" name="name" placeholder="Name" >
        <br>
        
@@ -17,3 +29,5 @@
 
 <input type="submit" class="myButton" value="Edit">
 </form>
+
+</div>
