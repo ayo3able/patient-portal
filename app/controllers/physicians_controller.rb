@@ -35,12 +35,29 @@ class PhysiciansController < ApplicationController
   # Update
   # GET: /physicians/5/edit
   get "/physicians/:id/edit" do
-    erb :"/physicians/edit.html"
+    if logged_in?
+      if current_phys.id
+        erb :"/physicians/edit.html"
+      else
+        redirect "/physicians/#{current_phys.id}"
+      end
+    else
+        redirect '/'
+    end
+    
   end
 
   # PATCH: /physicians/5
   patch "/physicians/:id/edit" do
-    current_phys.update(name: params[:name], password: params[:password])
+    if logged_in?
+      if current_phys.id
+        current_phys.update(name: params[:name], username: params[:username], password: params[:password])
+      else
+        redirect "physicians/#{current_phys.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   # Destroy

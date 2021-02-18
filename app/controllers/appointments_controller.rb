@@ -12,7 +12,7 @@ class AppointmentsController < ApplicationController
     if !logged_in?
       redirect '/'
     end
-    if params[:appointment_date] !="" && params[:id] != ""
+    if params[:appointment_date] !="" && params[:patient_id] != ""
       @appointment = Appointment.create(appointment_date: params[:appointment_date],
       patient_id: params[:patient_id],
       physician_id: current_phys.id)

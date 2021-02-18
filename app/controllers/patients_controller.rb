@@ -47,8 +47,9 @@ class PatientsController < ApplicationController
     patch "/patients/:id/edit" do
       set_patient
         if logged_in?
-          if @patient.physicians.includes(current_phys)
+          if @patient.physicians.include?(current_phys)
             @patient.update(name: params[:name], address: params[:address], insurance: params[:insurance], age: params[:age])
+          else
             redirect "physicians/#{current_phys.id}"
           end
         else
@@ -63,7 +64,9 @@ class PatientsController < ApplicationController
     delete "/patients/:id/delete" do
       set_patient
       if logged_in?
+        if @patient.physicians.include?(current_phys)
         @patient.delete && @patient.appointments.delete
+        else
         redirect "/physicians/#{current_phys.id}"
       else
       redirect "/physicians/#{current_phys.id}"  
